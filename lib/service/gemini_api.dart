@@ -1,5 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+
 
 class GeminiApi {
   Future <String>sendRequest(String message) async{
@@ -8,7 +10,7 @@ class GeminiApi {
 
     //----------------
     Map<String,String>? header = {
-      "x-goog-api-key":"Secret",
+      "x-goog-api-key": dotenv.get('my_api') ,
     };
 
     Map<String,String>? body = {
